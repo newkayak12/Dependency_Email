@@ -1,0 +1,36 @@
+plugins {
+    id 'java'
+    id 'maven-publish' // maven 사용
+}
+
+group 'org.github.newkayak12'
+version '1.0.0'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.1'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.1'
+    implementation 'org.springframework.boot:spring-boot-starter-mail:2.7.7'
+    implementation 'org.springframework.boot:spring-boot-starter-thymeleaf:2.7.7'
+}
+
+test {
+    useJUnitPlatform()
+}
+
+publishing {
+    publications {
+        maven(MavenPublication) {
+
+            // groupId, artifactId, version을 따로 지정하지 않으면 처음 생성할 때 지정한 기본설정으로 생성한다. (생략가능)
+            groupId = 'com.github.newkayak12'
+            artifactId = 'Dependency-EmailSender'
+            version = '1.0.0'
+
+            from components.java
+        }
+    }
+}
