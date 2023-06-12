@@ -32,8 +32,7 @@ public class MailTest {
                     HtmlMailForm.write("subject", "sample", new HashMap<String,Object>(){{
                         put("title", "TITLE");
                         put("text", "TEXT???");
-                    }}, "newkayak12@gmail.com"),
-                    null
+                    }}, "newkayak12@gmail.com")
             );
         }
 
