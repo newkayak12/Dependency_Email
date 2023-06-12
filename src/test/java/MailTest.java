@@ -28,11 +28,13 @@ public class MailTest {
 
         @Test
         public void htmlMail() {
+
+            simpleMailMessage.resolvingTemplate("sample", new HashMap<String,Object>(){{
+                put("title", "TITLE");
+                put("text", "TEXT???");
+            }});
             simpleMailMessage.send(
-                    HtmlMailForm.write("subject", "sample", new HashMap<String,Object>(){{
-                        put("title", "TITLE");
-                        put("text", "TEXT???");
-                    }}, "newkayak12@gmail.com")
+                    HtmlMailForm.write("subject",  "newkayak12@gmail.com")
             );
         }
 
